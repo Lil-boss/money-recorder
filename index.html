@@ -62,7 +62,7 @@
                                 <div class="md:w-2/3">
                                     <input
                                         class="bg-white-200 appearance-none border-2 border-gray-200 rounded w-full py-2 px-4 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-purple-500"
-                                        id="income-input" type="text">
+                                        id="food-input" type="text">
                                 </div>
                             </div>
                             <div class="md:flex md:items-center mb-6">
@@ -76,7 +76,7 @@
                                 <div class="md:w-2/3">
                                     <input
                                         class="bg-white-200 appearance-none border-2 border-gray-200 rounded w-full py-2 px-4 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-purple-500"
-                                        id="income-input" type="text">
+                                        id="rent-input" type="text">
                                 </div>
                             </div>
                             <div class="md:flex md:items-center mb-6">
@@ -89,12 +89,13 @@
                                 <div class="md:w-2/3">
                                     <input
                                         class="bg-white-200 appearance-none border-2 border-gray-200 rounded w-full py-2 px-4 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-purple-500"
-                                        id="income-input" type="text">
+                                        id="cloth-input" type="text">
                                 </div>
                             </div>
                             <!-- button -->
                             <div class="text-center">
                                 <button
+                                onclick="expenseCal()"
                                     class="shadow bg-emerald-500 hover:bg-emerald-400 focus:shadow-outline focus:outline-none text-white font-bold py-2 px-8 rounded"
                                     type="button">
                                     calculate
@@ -103,8 +104,8 @@
                         </form>
                         <!-- calculation -->
                         <div class="text-xl text-center my-4">
-                            <p>Total Expenses: <span>0000</span></p>
-                            <p>Balance: <span>0000</span></p>
+                            <p>Total Expenses: <span id="total-expense">0000</span></p>
+                            <p>Balance: <span id="total-balance">0000</span></p>
                         </div>
                         <!-- savings -->
                         <div class="md:flex md:items-center mb-6">
@@ -117,12 +118,13 @@
                             <div class="md:w-2/3">
                                 <input
                                     class="bg-white-200 appearance-none border-2 border-gray-200 rounded w-full py-2 px-4 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-purple-500"
-                                    id="income-input" type="text">
+                                    id="saveing-input" type="text">
                             </div>
                             <p class="mx-4">%</p>
                             <!-- button -->
                             <div class="text-center">
                                 <button
+                                onclick="savingCal()"
                                     class="shadow bg-emerald-500 hover:bg-emerald-400 focus:shadow-outline focus:outline-none text-white font-bold py-2 px-8 rounded"
                                     type="button">
                                     calculate
@@ -131,7 +133,7 @@
                         </div>
                         <!-- calculation -->
                         <div class="text-xl text-center my-4">
-                            <p>Saving Amount: <span>0000</span></p>
+                            <p>Saving Amount: <span id="save-money">0000</span></p>
                             <p>Remaining Balance: <span>0000</span></p>
                         </div>
                     </div>

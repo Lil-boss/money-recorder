@@ -38,6 +38,7 @@ function expenseCal() {
   }
   document.getElementById("total-expense").innerText = totalExpenses;
   document.getElementById("total-balance").innerText = totalBalance;
+  document.getElementById("total-remain").innerText = "";
 }
 
 // saving section

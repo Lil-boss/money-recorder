@@ -6,13 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Money-Recorder</title>
-    <!-- bootstrap -->
-    <!-- <link
-      href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css"
-      rel="stylesheet"
-      integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3"
-      crossorigin="anonymous"
-    /> -->
+
     <!-- tailwindcss -->
     <script src="https://cdn.tailwindcss.com"></script>
 </head>
@@ -25,124 +19,131 @@
     <!-- main -->
     <main>
         <section class="w-5/6 mx-auto">
-            <div class="grid grid-cols-2 gap-8 h-full">
+            <!-- alert -->
+            <div id="alertBar" class="bg-red-600 text-white p-4 absolute hidden top-0 right-0 z-10">
+                <span class="float-right ml-8 text-2xl cursor-pointer leading-6"
+                    onclick="this.parentElement.style.display='none';">&times;</span>
+                <strong id="message">Hello</strong>
+            </div>
+            <div class="sm:grid grid-cols-1 md:grid grid-cols-2 gap-8 md:h-full">
                 <!-- image -->
-                <div class=" mb-8">
+                <div class="mb-8">
                     <img class="rounded h-full" src="img/money.jpg" alt="" />
                 </div>
-                <!-- form -->
-                <div class="bg-gray-200 rounded mb-8">
-                    <div class="w-4/5 mx-auto">
-                        <form class="w-full max-w-sm">
-                            <!-- income -->
-                            <p class="text-center text-2xl my-4">Income</p>
-                            <div class="md:flex md:items-center mb-6">
-                                <div class="md:w-1/3">
-                                    <label class="block text-gray-500 font-bold md:text-right mb-1 md:mb-0 pr-4"
-                                        for="inline-full-name">
-                                        Income
-                                    </label>
-                                </div>
-                                <div class="md:w-2/3">
-                                    <input
-                                        class="bg-white-200 appearance-none border-2 border-gray-200 rounded w-full py-2 px-4 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-purple-500"
-                                        id="income-input" type="text">
-                                </div>
-                            </div>
-                            <!-- expense -->
-                            <p class="text-center text-2xl my-4">Expenses</p>
-                            <div class="md:flex md:items-center mb-6">
-
-                                <div class="md:w-1/3">
-                                    <label class="block text-gray-500 font-bold md:text-right mb-1 md:mb-0 pr-4"
-                                        for="inline-full-name">
-                                        Food
-                                    </label>
-                                </div>
-                                <div class="md:w-2/3">
-                                    <input
-                                        class="bg-white-200 appearance-none border-2 border-gray-200 rounded w-full py-2 px-4 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-purple-500"
-                                        id="food-input" type="text">
-                                </div>
-                            </div>
-                            <div class="md:flex md:items-center mb-6">
-
-                                <div class="md:w-1/3">
-                                    <label class="block text-gray-500 font-bold md:text-right mb-1 md:mb-0 pr-4"
-                                        for="inline-full-name">
-                                        Rent
-                                    </label>
-                                </div>
-                                <div class="md:w-2/3">
-                                    <input
-                                        class="bg-white-200 appearance-none border-2 border-gray-200 rounded w-full py-2 px-4 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-purple-500"
-                                        id="rent-input" type="text">
-                                </div>
-                            </div>
-                            <div class="md:flex md:items-center mb-6">
-                                <div class="md:w-1/3">
-                                    <label class="block text-gray-500 font-bold md:text-right mb-1 md:mb-0 pr-4"
-                                        for="inline-full-name">
-                                        Cloths
-                                    </label>
-                                </div>
-                                <div class="md:w-2/3">
-                                    <input
-                                        class="bg-white-200 appearance-none border-2 border-gray-200 rounded w-full py-2 px-4 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-purple-500"
-                                        id="cloth-input" type="text">
-                                </div>
-                            </div>
-                            <!-- button -->
-                            <div class="text-center">
-                                <button
-                                onclick="expenseCal()"
-                                    class="shadow bg-emerald-500 hover:bg-emerald-400 focus:shadow-outline focus:outline-none text-white font-bold py-2 px-8 rounded"
-                                    type="button">
-                                    calculate
-                                </button>
-                            </div>
-                        </form>
-                        <!-- calculation -->
-                        <div class="text-xl text-center my-4">
-                            <p>Total Expenses: <span id="total-expense">0000</span></p>
-                            <p>Balance: <span id="total-balance">0000</span></p>
-                        </div>
-                        <!-- savings -->
+                <div class="w-4/5 mx-auto">
+                    <!-- form -->
+                    <form class="w-full max-w-sm">
+                        <!-- income -->
+                        <p class="text-center text-2xl my-4">Income</p>
                         <div class="md:flex md:items-center mb-6">
                             <div class="md:w-1/3">
                                 <label class="block text-gray-500 font-bold md:text-right mb-1 md:mb-0 pr-4"
                                     for="inline-full-name">
-                                    save
+                                    Income
                                 </label>
                             </div>
                             <div class="md:w-2/3">
                                 <input
                                     class="bg-white-200 appearance-none border-2 border-gray-200 rounded w-full py-2 px-4 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-purple-500"
-                                    id="saveing-input" type="text">
-                            </div>
-                            <p class="mx-4">%</p>
-                            <!-- button -->
-                            <div class="text-center">
-                                <button
-                                onclick="savingCal()"
-                                    class="shadow bg-emerald-500 hover:bg-emerald-400 focus:shadow-outline focus:outline-none text-white font-bold py-2 px-8 rounded"
-                                    type="button">
-                                    calculate
-                                </button>
+                                    id="income-input" type="text" required>
                             </div>
                         </div>
-                        <!-- calculation -->
-                        <div class="text-xl text-center my-4">
-                            <p>Saving Amount: <span id="save-money">0000</span></p>
-                            <p>Remaining Balance: <span>0000</span></p>
+                        <!-- expense -->
+                        <p class="text-center text-2xl my-4">Expenses</p>
+                        <div class="md:flex md:items-center mb-6">
+
+                            <div class="md:w-1/3">
+                                <label class="block text-gray-500 font-bold md:text-right mb-1 md:mb-0 pr-4"
+                                    for="inline-full-name">
+                                    Food
+                                </label>
+                            </div>
+                            <div class="md:w-2/3">
+                                <input
+                                    class="bg-white-200 appearance-none border-2 border-gray-200 rounded w-full py-2 px-4 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-purple-500"
+                                    id="food-input" type="text" required>
+                            </div>
                         </div>
+                        <div class="md:flex md:items-center mb-6">
+
+                            <div class="md:w-1/3">
+                                <label class="block text-gray-500 font-bold md:text-right mb-1 md:mb-0 pr-4"
+                                    for="inline-full-name">
+                                    Rent
+                                </label>
+                            </div>
+                            <div class="md:w-2/3">
+                                <input
+                                    class="bg-white-200 appearance-none border-2 border-gray-200 rounded w-full py-2 px-4 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-purple-500"
+                                    id="rent-input" type="text" required>
+                            </div>
+                        </div>
+                        <div class="md:flex md:items-center mb-6">
+                            <div class="md:w-1/3">
+                                <label class="block text-gray-500 font-bold md:text-right mb-1 md:mb-0 pr-4"
+                                    for="inline-full-name">
+                                    Cloths
+                                </label>
+                            </div>
+                            <div class="md:w-2/3">
+                                <input
+                                    class="bg-white-200 appearance-none border-2 border-gray-200 rounded w-full py-2 px-4 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-purple-500"
+                                    id="cloth-input" type="text" required>
+                            </div>
+                        </div>
+                        <!-- button -->
+                        <div class="text-center">
+                            <button 
+                            onclick="expenseCal()"
+                                class="shadow bg-emerald-500 hover:bg-emerald-400 focus:shadow-outline focus:outline-none text-white font-bold py-2 px-8 rounded"
+                                type="button">
+                                calculate
+                            </button>
+                        </div>
+                    </form>
+                    <!-- calculation -->
+                    <div class="text-xl text-center my-4">
+                        <p>Total Expenses: <span id="total-expense">0000</span></p>
+                        <p>Balance: <span id="total-balance">0000</span></p>
+                    </div>
+                    <!-- savings -->
+                    <div class="md:flex md:items-center mb-6">
+                        <div class="md:w-1/3">
+                            <label class="block text-gray-500 font-bold md:text-right mb-1 md:mb-0 pr-4"
+                                for="inline-full-name">
+                                save
+                            </label>
+                        </div>
+                        <div class="md:w-2/3">
+                            <input
+                                class="bg-white-200 appearance-none border-2 border-gray-200 rounded w-full py-2 px-4 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-purple-500"
+                                id="saving-input" type="text" required>
+                        </div>
+                        <p class="mx-4">%</p>
+                        <!-- button -->
+                        <div class="text-center">
+                            <button onclick="savingCal()"
+                                class="shadow bg-emerald-500 hover:bg-emerald-400 focus:shadow-outline focus:outline-none text-white font-bold py-2 px-8 rounded"
+                                type="button">
+                                calculate
+                            </button>
+                        </div>
+                    </div>
+                    <!-- calculation -->
+                    <div class="text-xl text-center my-4">
+                        <p>Saving Amount: <span id="save-money">0000</span></p>
+                        <p>Remaining Balance: <span id="total-remain">0000</span></p>
                     </div>
                 </div>
             </div>
             </div>
+            </div>
+
+
         </section>
     </main>
     <!-- javascript -->
+
     <script src="js/main.js"></script>
 </body>
 
